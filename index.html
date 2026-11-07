@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WAQAS SHOPPING SITE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="brand-wrap">
+          <div class="brand-logo">W</div>
+          <div>
+            <p class="eyebrow">WAQAS</p>
+            <h2>Shopping Site</h2>
+          </div>
+        </div>
+
+        <nav class="main-nav">
+          <a href="#" id="goHomeBtn">Home</a>
+          <a href="#featured">Deals</a>
+          <a href="#products">Shop</a>
+          <a href="#support">Support</a>
+        </nav>
+
+        <div class="header-actions">
+          <span id="topUserBadge" class="user-badge hidden">Guest</span>
+          <button id="homeLoginBtn" class="btn btn-primary">Login</button>
+          <button id="headerSignInBtn" class="btn btn-secondary">Sign in</button>
+          <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+        </div>
+      </header>
+
+      <main>
+        <section id="homePage" class="page-section active">
+          <div class="hero">
+            <div class="hero-copy">
+              <p class="eyebrow accent">Premium shopping</p>
+              <h1>Luxury essentials for every lifestyle.</h1>
+              <p>
+                Discover premium fashion, electronics, beauty, and accessories with exclusive offers and a clean black luxury experience.
+              </p>
+              <div class="hero-buttons">
+                <button id="dashboardLoginBtn" class="btn btn-primary">Login to Shop</button>
+                <button class="btn btn-ghost" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">View Products</button>
+              </div>
+              <div class="stats-grid">
+                <div>
+                  <strong>50k+</strong>
+                  <span>Happy customers</span>
+                </div>
+                <div>
+                  <strong>4.9/5</strong>
+                  <span>Ratings</span>
+                </div>
+                <div>
+                  <strong>24/7</strong>
+                  <span>Support</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-visual">
+              <div class="showcase-card">
+                <div class="side-badge">Best seller</div>
+                <img src="https://images.unsplash.com/photo-1525909092-9d7d1a63b2d3?auto=format&fit=crop&w=900&q=80" alt="Premium shopping" />
+                <div class="showcase-info">
+                  <div>
+                    <span>Smart Watch</span>
+                    <strong>$249.99</strong>
+                  </div>
+                  <button class="tiny-btn">Add to cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="featured" class="features-grid">
+            <article>
+              <span>🚚</span>
+              <h3>Fast shipping</h3>
+              <p>Quick delivery across major cities with secure packaging.</p>
+            </article>
+            <article>
+              <span>💳</span>
+              <h3>Secure payments</h3>
+              <p>Protected checkout and trusted payment systems.</p>
+            </article>
+            <article>
+              <span>🎁</span>
+              <h3>Exclusive deals</h3>
+              <p>Seasonal offers, bundles, and premium discounts for shoppers.</p>
+            </article>
+          </div>
+
+          <section id="support" class="support-section">
+            <div class="support-box">
+              <p class="eyebrow accent">Support center</p>
+              <h2>Need help? Message the owner directly.</h2>
+              <div class="support-grid">
+                <div>
+                  <h3>Email</h3>
+                  <p>admin@waqas.com</p>
+                </div>
+                <div>
+                  <h3>Helpline</h3>
+                  <a href="#helplineForm" class="helpline-link">Send message</a>
+                </div>
+              </div>
+
+              <form id="helplineForm" class="helpline-form">
+                <div class="form-grid">
+                  <label>
+                    Your name
+                    <input id="helplineName" type="text" placeholder="Your name" />
+                  </label>
+                  <label>
+                    Username
+                    <input id="helplineUsername" type="text" placeholder="Your username" />
+                  </label>
+                </div>
+
+                <label>
+                  Message to owner
+                  <textarea id="helplineMessageText" rows="4" placeholder="Write your question or message here..." required></textarea>
+                </label>
+
+                <button type="submit" class="btn btn-primary">Send to owner</button>
+                <p id="helplineMessage" class="auth-message" aria-live="polite"></p>
+              </form>
+            </div>
+          </section>
+
+          <section id="products" class="catalog-section">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow accent">Catalog</p>
+                <h2>Explore our latest collection</h2>
+              </div>
+              <div class="catalog-filters">
+                <input id="homeSearchInput" type="search" placeholder="Search products" />
+                <select id="homeCategoryFilter">
+                  <option value="All">All categories</option>
+                  <option value="Fashion">Fashion</option>
+                  <option value="Electronics">Electronics</option>
+                  <option value="Accessories">Accessories</option>
+                  <option value="Footwear">Footwear</option>
+                  <option value="Beauty">Beauty</option>
+                </select>
+                <select id="homeSortFilter">
+                  <option value="featured">Featured</option>
+                  <option value="price-low">Price low to high</option>
+                  <option value="price-high">Price high to low</option>
+                  <option value="rating">Top rated</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="homeProductGrid" class="product-grid"></div>
+          </section>
+        </section>
+
+        <section id="authPage" class="page-section">
+          <div class="auth-shell">
+            <div class="auth-card">
+              <div class="auth-header">
+                <div class="brand-logo small">W</div>
+                <div>
+                  <p class="eyebrow">Access portal</p>
+                  <h2>Welcome back</h2>
+                </div>
+              </div>
+
+              <div class="auth-tabs">
+                <button class="role-tab active" data-role="user">Login</button>
+                <button class="role-tab" data-role="signup">Sign in</button>
+                <button class="role-tab" data-role="admin">Admin Login</button>
+              </div>
+
+              <form id="userLoginForm" class="login-form active">
+                <label>
+                  Email or username
+                  <input id="userIdentifier" type="text" placeholder="name@gmail.com or username" required />
+                </label>
+                <label>
+                  Password
+                  <div class="password-field">
+                    <input id="userPassword" type="password" placeholder="Enter your password" required />
+                    <label class="toggle-password">
+                      <input type="checkbox" data-password-target="userPassword" />
+                      Show
+                    </label>
+                  </div>
+                </label>
+                <button type="submit" class="btn btn-primary full-width">Login as user</button>
+              </form>
+
+              <form id="userSignupForm" class="login-form">
+                <label>
+                  Full name
+                  <input id="newUserName" type="text" placeholder="Your full name" required />
+                </label>
+                <label>
+                  Username
+                  <input id="newUserUsername" type="text" placeholder="Choose username" required />
+                </label>
+                <label>
+                  Gmail address
+                  <input id="newUserEmail" type="email" placeholder="newuser@gmail.com" required />
+                </label>
+                <label>
+                  Password
+                  <div class="password-field">
+                    <input id="newUserPassword" type="password" placeholder="Create password" required />
+                    <label class="toggle-password">
+                      <input type="checkbox" data-password-target="newUserPassword" />
+                      Show
+                    </label>
+                  </div>
+                </label>
+                <button type="submit" class="btn btn-primary full-width">Create account</button>
+              </form>
+
+              <form id="adminLoginForm" class="login-form">
+                <label>
+                  Admin email
+                  <input id="adminEmail" type="email" value="admin@waqas.com" required />
+                </label>
+                <label>
+                  Password
+                  <div class="password-field">
+                    <input id="adminPassword" type="password" value="waqas12143" required />
+                    <label class="toggle-password">
+                      <input type="checkbox" data-password-target="adminPassword" />
+                      Show
+                    </label>
+                  </div>
+                </label>
+                <button type="submit" class="btn btn-primary full-width">Login as admin</button>
+              </form>
+
+              <p id="authMessage" class="auth-message" aria-live="polite"></p>
+            </div>
+          </div>
+        </section>
+
+        <section id="dashboardPage" class="page-section">
+          <div class="dashboard-shell">
+            <div class="dashboard-header">
+              <div>
+                <p class="eyebrow accent">Dashboard</p>
+                <h2 id="dashboardTitle">Your account</h2>
+              </div>
+              <button id="dashboardBackHomeBtn" class="btn btn-ghost">Back to Home</button>
+            </div>
+
+            <div id="userDashboard" class="dashboard-panel hidden">
+              <div class="summary-grid">
+                <article class="summary-card">
+                  <span>Account</span>
+                  <h3 id="userWelcome">Welcome</h3>
+                  <p id="userEmailLabel">user@gmail.com</p>
+                </article>
+                <article class="summary-card">
+                  <span>Cart total</span>
+                  <h3 id="userCartTotal">$0.00</h3>
+                  <p id="cartCount">0 items</p>
+                </article>
+                <article class="summary-card">
+                  <span>Membership</span>
+                  <h3>Premium</h3>
+                  <p>Fast shipping enabled</p>
+                </article>
+              </div>
+
+              <div class="dashboard-grid">
+                <div class="panel-box">
+                  <div class="panel-title-row">
+                    <h3>Browse products</h3>
+                  </div>
+                  <div id="userProductGrid" class="product-grid compact"></div>
+                </div>
+
+                <aside class="panel-box cart-box">
+                  <div class="panel-title-row">
+                    <h3>Shopping cart</h3>
+                  </div>
+                  <div id="cartItems" class="cart-list"></div>
+                  <div class="checkout-bar">
+                    <span>Subtotal</span>
+                    <strong id="subtotalValue">$0.00</strong>
+                  </div>
+                  <button class="btn btn-primary full-width">Checkout now</button>
+                </aside>
+              </div>
+            </div>
+
+            <div id="adminDashboard" class="dashboard-panel hidden">
+              <div class="admin-layout">
+                <div class="panel-box">
+                  <div class="panel-title-row">
+                    <h3>Publish new product</h3>
+                  </div>
+                  <form id="adminProductForm" class="admin-form">
+                    <div class="form-grid">
+                      <label>
+                        Product name
+                        <input id="productName" type="text" placeholder="Product name" required />
+                      </label>
+                      <label>
+                        Category
+                        <select id="productCategory" required>
+                          <option value="">Select category</option>
+                          <option value="Fashion">Fashion</option>
+                          <option value="Electronics">Electronics</option>
+                          <option value="Accessories">Accessories</option>
+                          <option value="Footwear">Footwear</option>
+                          <option value="Beauty">Beauty</option>
+                        </select>
+                      </label>
+                      <label>
+                        Price
+                        <input id="productPrice" type="number" min="1" step="0.01" placeholder="149.99" required />
+                      </label>
+                      <label>
+                        Stock
+                        <input id="productStock" type="number" min="1" value="10" required />
+                      </label>
+                    </div>
+
+                    <label>
+                      Image URL
+                      <input id="productImage" type="url" placeholder="https://example.com/product.jpg" required />
+                    </label>
+
+                    <label>
+                      Description
+                      <textarea id="productDescription" rows="4" placeholder="Add product details..." required></textarea>
+                    </label>
+
+                    <button type="submit" class="btn btn-primary full-width">Publish product</button>
+                    <p id="adminFormMessage" class="auth-message" aria-live="polite"></p>
+                  </form>
+                </div>
+
+                <div class="panel-box">
+                  <div class="panel-title-row">
+                    <h3>Owner settings</h3>
+                  </div>
+                  <form id="adminSettingsForm" class="admin-form">
+                    <label>
+                      Admin email
+                      <input id="ownerEmailInput" type="email" placeholder="admin@waqas.com" required />
+                    </label>
+                    <label>
+                      Admin password
+                      <div class="password-field">
+                        <input id="ownerPasswordInput" type="password" placeholder="waqas12143" required />
+                        <label class="toggle-password">
+                          <input type="checkbox" data-password-target="ownerPasswordInput" />
+                          Show
+                        </label>
+                      </div>
+                    </label>
+                    <button type="submit" class="btn btn-primary full-width">Save admin info</button>
+                    <p id="adminSettingsMessage" class="auth-message" aria-live="polite"></p>
+                  </form>
+                </div>
+
+                <div class="panel-box">
+                  <div class="panel-title-row">
+                    <h3>Published products</h3>
+                  </div>
+                  <div id="adminProductList" class="admin-product-list"></div>
+                </div>
+
+                <div class="panel-box full-span-panel">
+                  <div class="panel-title-row">
+                    <h3>Owner inbox</h3>
+                  </div>
+                  <div id="adminSupportMessages" class="message-list"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
